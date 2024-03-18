@@ -186,6 +186,7 @@ def get_search_results(args):
         "difficulty": "climb_stats.display_difficulty",
         "name": "climbs.name",
         "quality": "climb_stats.quality_average",
+        "gradeAccuracy" : "ROUND(climb_stats.difficulty_average - ROUND(climb_stats.display_difficulty), 2)"
     }[args.get("sortBy")]
     sort_order = "ASC" if args.get("sortOrder") == "asc" else "DESC"
     ordered_sql = f"{base_sql} ORDER BY {order_by_sql_name} {sort_order}"
